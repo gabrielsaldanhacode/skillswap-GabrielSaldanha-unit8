@@ -26,3 +26,25 @@ describe('filterSkillsByCategory function', () => {
         expect(result).toEqual([]);
     });
 });
+
+const { filterSkillsByCategory, calculateTotalCost } = require('../skillswap-functions');
+
+// ... existing filter test suite ...
+
+describe('calculateTotalCost function', () => {
+    test('should return correct total cost for standard rates and hours', () => {
+        expect(calculateTotalCost(20, 2)).toBe(40);
+    });
+
+    test('should return 0 for free sessions', () => {
+        expect(calculateTotalCost(0, 3)).toBe(0);
+    });
+
+    test('should return 0 when hours requested is 0', () => {
+        expect(calculateTotalCost(20, 0)).toBe(0);
+    });
+
+    test('should handle decimal hours correctly', () => {
+        expect(calculateTotalCost(25, 1.5)).toBe(37.5);
+    });
+});
