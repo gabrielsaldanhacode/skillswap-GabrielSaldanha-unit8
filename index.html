@@ -13,6 +13,22 @@
   <button class="filter-btn" data-category="Career">Career</button>
 </div>
 
+<section class="calculator-section">
+  <h2>Session Cost Calculator</h2>
+  <form id="cost-calculator-form">
+    <div class="form-group">
+      <label for="hourly-rate">Hourly Rate ($):</label>
+      <input type="number" id="hourly-rate" min="0" step="0.01" placeholder="e.g. 25" required>
+    </div>
+    <div class="form-group">
+      <label for="session-hours">Hours Needed:</label>
+      <input type="number" id="session-hours" min="0" step="0.5" placeholder="e.g. 1.5" required>
+    </div>
+    <button type="submit" id="calculate-btn">Calculate Total Cost</button>
+  </form>
+  <div id="cost-result" class="result-display"></div>
+</section>
+
       <div class="skills-grid">
         <!-- Card 1 -->
         <article class="card">
