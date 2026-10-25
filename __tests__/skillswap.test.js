@@ -1,0 +1,28 @@
+const { filterSkillsByCategory } = require('../skillswap-functions');
+
+describe('filterSkillsByCategory function', () => {
+    const skills = [
+        { title: 'Python Tutoring', category: 'Programming', price: 20 },
+        { title: 'Guitar Lessons', category: 'Music', price: 15 },
+        { title: 'Resume Review', category: 'Career', price: 0 },
+        { title: 'Web Development', category: 'Programming', price: 25 }
+    ];
+
+    test('should return only skills matching the given category', () => {
+        const result = filterSkillsByCategory(skills, 'Programming');
+        expect(result).toEqual([
+            { title: 'Python Tutoring', category: 'Programming', price: 20 },
+            { title: 'Web Development', category: 'Programming', price: 25 }
+        ]);
+    });
+
+    test('should return all skills when category is "All"', () => {
+        const result = filterSkillsByCategory(skills, 'All');
+        expect(result).toEqual(skills);
+    });
+
+    test('should return an empty array if no skills match', () => {
+        const result = filterSkillsByCategory(skills, 'Cooking');
+        expect(result).toEqual([]);
+    });
+});
