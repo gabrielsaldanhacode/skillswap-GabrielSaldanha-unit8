@@ -51,3 +51,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// 1. Function copied from skillswap-functions.js
+function calculateTotalCost(hourlyRate, hours) {
+  return hourlyRate * hours;
+}
+
+// 2. Form submission listener
+document.addEventListener('DOMContentLoaded', () => {
+  const calcForm = document.getElementById('cost-calculator-form');
+  const resultDisplay = document.getElementById('cost-result');
+
+  if (calcForm) {
+    calcForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Convert input string values to numbers
+      const rate = parseFloat(document.getElementById('hourly-rate').value) || 0;
+      const hours = parseFloat(document.getElementById('session-hours').value) || 0;
+
+      const total = calculateTotalCost(rate, hours);
+      resultDisplay.textContent = `Total Estimated Cost: $${total.toFixed(2)}`;
+    });
+  }
+});

@@ -1,4 +1,4 @@
-const { filterSkillsByCategory } = require('../skillswap-functions');
+const { filterSkillsByCategory, calculateTotalCost } = require('../skillswap-functions');
 
 describe('filterSkillsByCategory function', () => {
     const skills = [
@@ -26,10 +26,6 @@ describe('filterSkillsByCategory function', () => {
         expect(result).toEqual([]);
     });
 });
-
-const { filterSkillsByCategory, calculateTotalCost } = require('../skillswap-functions');
-
-// ... existing filter test suite ...
 
 describe('calculateTotalCost function', () => {
     test('should return correct total cost for standard rates and hours', () => {
